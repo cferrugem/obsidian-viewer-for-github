@@ -1,6 +1,9 @@
 # Original logo export from ChatGPT (kept locally; repo uses icons/logo.png)
 ChatGPT Image*.png
 
+# Chrome Web Store package
+*.zip
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
