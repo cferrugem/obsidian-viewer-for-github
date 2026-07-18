@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obsidian Viewer for GitHub — Options</title>
+  <style>
+    body {
+      font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #1f2328;
+      line-height: 1.5;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0d1117; color: #e6edf3; }
+      textarea, input { background: #161b22; color: #e6edf3; border-color: #30363d; }
+      .hint { color: #8b949e; }
+    }
+    h1 { font-size: 1.4rem; }
+    .accent { color: #7f6df2; }
+    label { font-weight: 600; display: block; margin: 20px 0 6px; }
+    textarea {
+      width: 100%; min-height: 160px; padding: 10px; border-radius: 8px;
+      border: 1px solid #d0d7de; font-family: ui-monospace, monospace;
+      font-size: 0.9rem; box-sizing: border-box;
+    }
+    .row { display: flex; align-items: center; gap: 8px; margin-top: 16px; }
+    .hint { color: #57606a; font-size: 0.85rem; }
+    button {
+      margin-top: 22px; padding: 9px 18px; border: none; border-radius: 8px;
+      background: #7f6df2; color: #fff; font-weight: 600; cursor: pointer;
+      font-size: 0.95rem;
+    }
+    button:hover { background: #6a58e0; }
+    #saved { margin-left: 12px; color: #3fb950; font-weight: 600; opacity: 0; transition: opacity .2s; }
+    #saved.show { opacity: 1; }
+    code { background: rgba(127,109,242,.14); padding: 1px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1><span class="accent">◆</span> Obsidian Viewer for GitHub</h1>
+  <p class="hint">
+    Renders <code>![[image.png]]</code> embeds and <code>[[wikilinks]]</code>
+    when you read your vault's Markdown notes on github.com.
+  </p>
+
+  <label for="folders">Attachment folders</label>
+  <p class="hint">
+    Folders (relative to your repository root) where your images live —
+    one per line. The extension also always checks the note's own folder
+    and the repo root. Order matters: earlier folders win.
+  </p>
+  <textarea id="folders" spellcheck="false"></textarea>
+
+  <div class="row">
+    <input type="checkbox" id="theme" />
+    <label for="theme" style="margin:0;font-weight:600;">
+      Apply Obsidian-like reading styling
+    </label>
+  </div>
+
+  <div>
+    <button id="save">Save</button>
+    <span id="saved">Saved ✓</span>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

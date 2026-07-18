@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Obsidian Viewer for GitHub",
+  "version": "1.0.0",
+  "description": "Renders Obsidian ![[embeds]], [[wikilinks]] and callouts on GitHub so your backed-up vault looks like Obsidian.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://github.com/*"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Obsidian Viewer for GitHub",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
